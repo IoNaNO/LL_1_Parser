@@ -1,0 +1,53 @@
+The grammar is : 
+1. E->TA
+2. A->+TA
+3. A->-TA
+4. A->e
+5. T->FB
+6. B->*FB
+7. B->/FB
+8. B->e
+9. F->(E)
+10. F->n
+The first set : 
+A: + - e 
+B: * / e 
+E: ( n 
+F: ( n 
+T: ( n 
+The follow set : 
+A: # ) 
+B: # ) + - 
+E: # ) 
+F: # ) * + - / 
+T: # ) + - 
+The parsing table : 
+          #         (         )         *         +         -         /         n         
+A         4.A->e    -         4.A->e    -         2.A->+TA  3.A->-TA  -         -         
+B         8.B->e    -         8.B->e    6.B->*FB  8.B->e    8.B->e    7.B->/FB  -         
+E         -         1.E->TA   -         -         -         -         -         1.E->TA   
+F         -         9.F->(E)  -         -         -         -         -         10.F->n   
+T         -         5.T->FB   -         -         -         -         -         5.T->FB   
+(n+n)*n-n/n, the result is: 
+E->TA
+T->FB
+F->(E)
+E->TA
+T->FB
+F->n
+B->e
+A->+TA
+T->FB
+F->n
+B->e
+A->e
+B->*FB
+F->n
+B->e
+A->-TA
+T->FB
+F->n
+B->/FB
+F->n
+B->e
+A->e

@@ -1,0 +1,23 @@
+The grammar is : 
+1. S->AB
+2. A->a
+3. A->e
+4. B->b
+5. B->e
+The first set : 
+A: a e 
+B: b e 
+S: a b e 
+The follow set : 
+A: # b 
+B: # 
+S: # 
+The parsing table : 
+          #         a         b         
+A         3.A->e    2.A->a    3.A->e    
+B         5.B->e    -         4.B->b    
+S         1.S->AB   1.S->AB   1.S->AB   
+ab, the result is: 
+S->AB
+A->a
+B->b

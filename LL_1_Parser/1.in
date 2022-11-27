@@ -1,0 +1,13 @@
+10
+E->TA
+A->+TA
+A->-TA
+A->e
+T->FB
+B->*FB
+B->/FB
+B->e
+F->(E)
+F->n
+1
+(n+n)*n-n/n
