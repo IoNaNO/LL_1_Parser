@@ -155,18 +155,20 @@ int parser::write_to_file(string filename = "output.txt") {
 				}
 				else {
 					cerr << "process: Do not match!" << endl;
+					outfile << "process failed!" << endl;
 					//outfile.close();
 					//return -3;
 					issuccuss = false;
 					break;
 				}
 			}
-			else if(non_terms.find(top)!=non_terms.end()) {
+			else if(non_terms.find(top)!=non_terms.end()&&terms.find(*it)!=terms.end()) {
 				int row = distance(non_terms.begin(), non_terms.find(top));
 				int col = distance(terms.begin(),terms.find(*it));
 				int prod_num = parsingtable[row][col];
 				if (prod_num == -1) {
 					cerr << "process: No production found in parse table!" << endl;
+					outfile << "process failed!" << endl;
 					//outfile.close();
 					//return -3;
 					issuccuss = false;
@@ -184,6 +186,7 @@ int parser::write_to_file(string filename = "output.txt") {
 			}
 			else {
 				cerr << "process: Invalid input!" << endl;
+				outfile << "process failed!" << endl;
 				//outfile.close();
 				//return -3;
 				issuccuss = false;

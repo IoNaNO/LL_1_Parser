@@ -51,3 +51,13 @@ B->/FB
 F->n
 B->e
 A->e
+(n++)n/*, the result is: 
+E->TA
+T->FB
+F->(E)
+E->TA
+T->FB
+F->n
+B->e
+A->+TA
+process failed!

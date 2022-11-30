@@ -21,3 +21,12 @@ ab, the result is:
 S->AB
 A->a
 B->b
+abc, the result is: 
+S->AB
+A->a
+B->b
+process failed!
+aabb, the result is: 
+S->AB
+A->a
+process failed!
